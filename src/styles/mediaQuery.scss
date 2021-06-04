@@ -1,0 +1,13 @@
+// media queries
+
+@mixin tablet-only{
+    @media (min-width:768px) and (max-width:1024px){
+        @content;
+    }
+}
+
+@mixin mobile-only{
+    @media (max-width:767px){
+        @content;
+    }
+}

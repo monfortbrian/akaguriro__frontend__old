@@ -1,0 +1,82 @@
+@import "mediaQuery";
+
+.products{
+    max-width: 1024px;
+    margin: auto;
+
+    @include tablet-only{
+        max-width: 80%;
+        margin-bottom: 65vh;
+    }
+    @include mobile-only{
+        font-size: .8em;
+        padding: 4vw;
+        box-sizing: border-box;
+    }
+ 
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+        padding: 20px 0;
+
+        h2{
+            margin: 0;
+        }
+
+        .MuiButton-root{
+            background-color: black!important;
+            color: white!important;
+            text-transform: initial;
+            padding: 5px 15px;
+            height: fit-content
+        }
+
+    }
+
+    &__table{
+        @include mobile-only{
+            overflow-x: scroll;
+            &::-webkit-scrollbar {
+                height: 3px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgb(112, 112, 112);
+                outline: none;
+                border-radius: 30px;
+              }
+        }    
+    }
+
+    &__list{
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+
+        td,th{
+            padding: 10px;
+        }
+        thead{
+            background-color: rgb(238, 238, 238);
+        }
+
+        .MuiButton-root{
+            background-color: black!important;
+            color: white!important;
+            text-transform: initial;
+            padding: 10px 0;
+
+            @include mobile-only{
+                min-width: 30px;
+                border-radius: 30px;
+            }
+            
+            .MuiSvgIcon-root{
+                font-size: 16px !important;
+                @include mobile-only{
+                    font-size: 10px !important;
+                }
+            }
+        }
+    }
+}

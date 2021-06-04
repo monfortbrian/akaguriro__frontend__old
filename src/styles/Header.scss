@@ -1,0 +1,222 @@
+@import "variables";
+@import "mediaQuery";
+
+
+.header{
+    box-sizing: border-box;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    background: white;
+
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 8vw;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+        @include tablet-only{
+            font-size: .9em;
+            padding: 10px 3vw;
+        }
+
+        @include mobile-only{
+            // font-size: .7em;
+            padding: 3px 5vw;
+            box-sizing: border-box;
+        }
+
+       .menu{
+           display: flex;
+           align-items: center;
+           cursor: pointer;
+
+           a{
+               margin: 0 10px;
+               text-decoration: none;
+               color: black;
+
+                &:hover{
+                    color: rgb(83, 83, 83);
+                }
+           }
+       }
+
+       .searchBar{
+            border-radius: 20px;
+            background-color: white;
+            border: 1.5px solid rgb(238, 238, 238);
+            margin-left: 3vw;
+            display: flex;
+            align-items: center;
+
+            @include mobile-only{
+                position: absolute;
+                top: 80px;
+                left:calc(18% - 20px);
+                margin:0 auto;
+            }
+
+            input{
+                border: none;
+                outline: none;
+                margin:0px 25px 0px 20px;
+            }
+
+            .MuiSvgIcon-root{
+                padding: 7px 23px;
+                background: $primary;
+                border-radius: 20px;
+                color: white;
+                cursor: pointer;
+            }
+       }
+       .tools{
+            display: flex;
+            align-items: center;
+
+            .showSearch{
+                display: none;
+                cursor: pointer;
+                @include mobile-only{
+                    display: block;
+                }
+            }
+            .MuiSvgIcon-root{
+                @include mobile-only{
+                    font-size: 30px;
+                }
+            }
+
+            &>a{
+                text-decoration: none;
+                color: black;
+                display: flex;
+                align-items: center ;
+
+                h4{
+                    @include mobile-only{
+                        display: none;
+                    }
+                }
+                &:hover{
+                    color: rgb(83, 83, 83);
+                }
+            }
+            &__language{
+                display: flex;
+                align-items: center;
+
+                .MuiSvgIcon-root{
+                    color: $primary;
+                }
+                img{
+                    height: 30px;
+                    margin-left: 12px;
+                    cursor: pointer;
+                }
+            
+            }
+            &__login{
+                display: flex;
+                align-items: center;
+                margin:0px 10px;
+                color: $primary;
+                position: relative;
+                cursor: pointer;
+                .MuiSvgIcon-root{
+                    color: $primary;
+                }
+
+                .user{
+                    display: flex;
+                    align-items: center;
+                    &>h4{
+                        @include mobile-only{
+                            display: none;
+                        }
+                    }
+                }
+
+                
+
+                .userInfo{
+                    position: absolute;
+                    left: 0;
+                    top:40px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    border: .5px solid #e7e7e7;
+                    text-align: center;
+                    padding: 0;
+                    background-color: white;
+                    list-style-type: none;
+
+                    @include mobile-only{
+                        top: 30px;
+                        left: -50px;
+                    }
+
+                    li{
+                        padding: 5px 30px;
+                        &:hover{
+                            background-color: rgb(241, 241, 241);
+                        }
+                    }
+                       
+                }
+                
+                a{
+                    text-decoration: none;
+                    color: black;   
+                    &:hover{
+                        color: rgb(83, 83, 83);
+                    }
+                }
+                &:hover{
+                    color: rgb(83, 83, 83);
+                }
+            }
+       }
+       
+    }
+}
+
+.header__bottom{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color;
+    background-color: #f1f1f1;
+    padding: 15px 14vw;
+    .menu{
+        a{
+            padding: 15px 20px;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+            color: #4b4b4b;
+            font-weight: bold;
+            font-weight: 400;
+        }
+        .active{
+                border-bottom: 3px solid $primary;
+                color: $primary;
+                font-weight: 900;
+            }
+    }
+
+    .info{
+        .MuiBadge-root{
+            margin:0px 10px;
+        }
+        .MuiSvgIcon-root{
+            color: #4b4b4b;
+        }
+    }
+}
+
+

@@ -1,0 +1,57 @@
+@import "mediaQuery";
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10vw;
+    margin-top: 50px;
+    background: #f7f7f7;
+
+    @include mobile-only{
+        flex-direction: column;
+        padding: 25px 5vw;
+        font-size: .9em;
+    }
+
+    @include tablet-only{
+        padding: 50px 20px;
+    }
+    
+    .info{
+        flex: .7;
+        @include mobile-only{
+           text-align: center;
+        }
+    }
+    .icons{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        @include mobile-only{
+            margin-top: 20px;
+        }
+
+        a{
+            text-decoration: none;
+            color: initial;
+        }
+
+        .MuiSvgIcon-root{
+            margin: 0px 10px;
+            background: lightgray;
+            padding: 10px;
+            border-radius: 50%;
+        }
+    }
+    .bloc{
+        display: flex;
+        justify-content: space-between;
+
+        div{
+            text-align: center;
+            width: 50%;
+        }
+    }
+}

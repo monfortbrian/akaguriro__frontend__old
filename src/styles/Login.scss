@@ -1,0 +1,70 @@
+@import "mediaQuery";
+
+.login,.register{
+    max-width: 30%;
+    margin: 3% auto;
+
+    @include mobile-only{
+        max-width: 85%;
+        font-size: .9em;
+        margin-top: 40px;
+    }
+    
+    .MuiCircularProgress-root{
+        width: 20px !important;
+        height: 20px !important;
+        margin-left: 47%;
+    }
+
+    .error{
+        margin-bottom: 15px;
+        background-color: #ffdcdc;
+        border-radius: 10px;
+        font-size: .7em;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        
+    }
+    &__form{    
+
+        input{
+            display: block;
+            width: 100%;
+            padding: 13px 20px;
+            margin: 20px 0px;
+            border: 2px solid transparent;
+            background-color: rgb(247, 247, 247);
+            font-size: initial;
+            box-sizing: border-box;
+            
+            &:focus{
+                border: 2px solid black;
+            }
+        }
+
+        .mdpInput{
+            position: relative;
+
+            div{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .MuiButton-root{
+            background-color: rgb(0, 0, 0) !important;
+            text-transform: initial !important;
+            padding: 8px 30px;
+            display: block;
+            color: white;
+
+            &:hover{
+                background-color:rgb(150, 150, 150)!important;
+            }
+        }
+    }
+}

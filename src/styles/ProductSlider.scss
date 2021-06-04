@@ -1,0 +1,40 @@
+@import "mediaQuery";
+
+.slider{
+    margin-top:6vh ;
+    overflow-x: hidden;
+    min-height: 500px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include tablet-only{
+        min-height: 270px;
+    }
+
+    @include mobile-only{
+        min-height: 200px;
+    }
+
+    .card{
+        overflow:hidden ;
+        position: relative;
+        margin: auto;
+        border-radius: 30px;
+        height: 400px;
+        width: 100%;
+
+        @include mobile-only{
+            height: 200px;
+        }
+        
+        @include tablet-only{
+            height: 300px;
+        }
+    
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+}

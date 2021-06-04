@@ -1,0 +1,47 @@
+@import "mediaQuery";
+
+.payment{ 
+    max-width: 1024px;
+    margin:5vh auto;
+    padding-bottom: 8vh;
+
+    @include mobile-only{
+        padding: 25px 25px 15vh 25px;
+        font-size: .8em;
+    }
+    
+
+    .MuiCircularProgress-root{
+        width: 20px !important;
+        height: 20px !important;
+        margin-left: 47%;
+    }
+
+    &__form{   
+        max-width: 55%;
+        margin: auto;
+
+        @include mobile-only{
+            width: 100%;
+            margin: 0;
+        }
+        
+        label{
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .MuiButton-root{
+            background-color: rgb(0, 0, 0) !important;
+            text-transform: initial !important;
+            padding: 8px 30px;
+            display: block;
+            color: white;
+            margin-top: 10px;
+
+            &:hover{
+                background-color:rgb(150, 150, 150)!important;
+            }
+        }
+    }
+}

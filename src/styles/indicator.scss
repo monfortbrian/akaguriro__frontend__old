@@ -1,0 +1,22 @@
+@import "mediaQuery";
+
+.indicator{
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    margin: auto;
+
+    @include mobile-only{
+        width: 100%;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+
+        &.disabled{
+            color: lightgray;
+            pointer-events: none;
+        }
+    }
+}

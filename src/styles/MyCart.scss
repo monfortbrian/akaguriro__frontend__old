@@ -1,0 +1,120 @@
+@import "mediaQuery";
+
+.myCart{
+    max-width: 1024px;
+    margin: 5vw auto;
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet-only{
+        padding:3vw;
+    };
+
+    @include mobile-only{
+        flex-direction: column;
+        padding: 20px;
+    }; 
+    
+    &__table{
+        width: 75%;
+        @include mobile-only{
+            overflow-x: scroll;
+            width: 100%;
+            font-size: .8em;
+        
+            &::-webkit-scrollbar {
+                height: 3px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgb(112, 112, 112);
+                outline: none;
+                border-radius: 30px;
+              }
+        }    
+    }
+
+    &__list{
+        width: 100%;
+        height: fit-content;
+        border-collapse: collapse;   
+
+        thead{  
+            font-weight: 900;
+            background-color: rgb(240, 240, 240);
+            text-align: center;
+            td{
+                padding: 10px;      
+            }
+        }
+        
+        tbody{
+            height: 100px;
+        }
+
+        td{
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        img{
+            width: 100px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .product{
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        
+        select{
+            padding: 5px;
+            width: 30%;
+            border: 2px solid black;
+            border-radius: 10px;
+
+            @include tablet-only{
+                width: 40%;
+            };
+
+            @include mobile-only{
+                width: 60%;
+                
+            };
+
+            &:focus{
+                outline-width: 0px;
+            }
+        }
+    }
+
+    &__total{
+        width: 23%;
+        @include mobile-only{
+            width: 100%;
+            margin-top: 30px;
+        };
+
+        h3{
+            text-align: center;
+            margin-bottom: 5vh;
+        }
+
+        .MuiButton-root{
+            background-color: black !important;
+            color: white !important;
+            text-transform: initial !important;
+            border-radius: 5px !important;
+            padding: 8px 10px;
+            width: 100%;
+
+            &:hover{
+                background-color:rgb(150, 150, 150)!important;
+            }
+        }
+    }
+}
