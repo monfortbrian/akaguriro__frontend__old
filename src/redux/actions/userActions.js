@@ -15,7 +15,7 @@ import {
   USER_UPDATE_PROFILE_SUCCESS,
 } from "../constants/userConstants.js";
 
-import { removeAllFromCart } from "../actions/cartActions.js"
+import { removeAllFromCart } from "../actions/cartActions.js";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -27,28 +27,27 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     const res = await axios.post(
-      "http://localhost:5000/api/v1/users/auth",
+      "http://akaguriro.herokuapp.com/api/v1/users/auth",
       { email, password },
       config
     );
-    console.log(res)
+    console.log(res);
 
-    if (res.data?.success !== false){
+    if (res.data?.success !== false) {
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: res.data,
       });
-    }else{
+    } else {
       dispatch({
         type: USER_LOGIN_FAIL,
-        payload: res.data?.message
+        payload: res.data?.message,
       });
     }
-    
 
     localStorage.setItem("userInfo", JSON.stringify(res.data));
   } catch (error) {
-    console.log(error.response)
+    console.log(error.response);
     dispatch({
       type: USER_LOGIN_FAIL,
       payload:
@@ -62,7 +61,7 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
-  dispatch(removeAllFromCart())
+  dispatch(removeAllFromCart());
 };
 
 export const register = (name, email, password) => async (dispatch) => {
@@ -75,7 +74,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "http://localhost:5000/api/v1/users/register",
+      "http://akaguriro.herokuapp.com/api/v1/users/register",
       { name, email, password },
       config
     );

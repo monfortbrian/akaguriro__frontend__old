@@ -6,14 +6,16 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCT_SEARCH 
+  PRODUCT_SEARCH,
 } from "../constants/productConstants.js";
 
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get("http://localhost:5000/api/v1/products");
+    const { data } = await axios.get(
+      "http://akaguriro.herokuapp.com/api/v1/products"
+    );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -27,14 +29,13 @@ export const listProducts = () => async (dispatch) => {
 };
 
 export const listProductDetails = (id) => async (dispatch) => {
-
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const { data } = await axios.get(`http://localhost:5000/api/v1/products/${id}`);
+    const { data } = await axios.get(
+      `http://akaguriro.herokuapp.com/api/v1/products/${id}`
+    );
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
-
   } catch (error) {
-
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
       payload:

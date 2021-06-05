@@ -4,13 +4,15 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
-  CART_REMOVE_ALL
+  CART_REMOVE_ALL,
 } from "../constants/cartConstants";
 
-export const addToCart = (id, qty) => async (dispatch,getState) => {
+export const addToCart = (id, qty) => async (dispatch, getState) => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/v1/products/${id}`);
-    const product = data.data
+    const { data } = await axios.get(
+      `http://akaguriro.herokuapp.com/api/v1/products/${id}`
+    );
+    const product = data.data;
 
     dispatch({
       type: CART_ADD_ITEM,
@@ -20,14 +22,16 @@ export const addToCart = (id, qty) => async (dispatch,getState) => {
         images: product.images,
         price: product.price,
         countInStock: product.countInStock,
-        qty
+        qty,
       },
     });
-    localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(getState().cart.cartItems)
+    );
   } catch (error) {
-    console.log("error")
+    console.log("error");
   }
-  
 };
 
 export const removeFromCart = (id) => (dispatch, getState) => {
@@ -39,12 +43,11 @@ export const removeFromCart = (id) => (dispatch, getState) => {
 };
 
 export const removeAllFromCart = () => (dispatch, getState) => {
-  localStorage.removeItem("cartItems")
+  localStorage.removeItem("cartItems");
   dispatch({
     type: CART_REMOVE_ALL,
   });
 };
-
 
 export const saveShippingAddress = (data) => (dispatch) => {
   dispatch({
